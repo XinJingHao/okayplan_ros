@@ -3,7 +3,7 @@
     <!-- 启动gazebo仿真，并用scripts/pub_real_coordinate.py实时发布机器人在gazebo中的真实TF坐标，并在rviz中可视化 -->
 
     <arg name="map_name" default="zoom_6_6" />
-    <arg name="render" default="false" />
+    <arg name="render" default="true" />
 
 
     <!--启动gazebo仿真环境-->

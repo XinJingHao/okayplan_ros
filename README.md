@@ -7,7 +7,7 @@ Please change the following ```your_ws``` with your own ```ROS_workspace```
 - **Step1:** clone okayplan_ros to your_ws
 ```cmd
 cd ~/your_ws/src
-git clone https://github.com/XinJingHao/OkayPlan_ROS.git
+git clone https://github.com/XinJingHao/okayplan_ros.git
 ```
 
 The file structure should be like this:

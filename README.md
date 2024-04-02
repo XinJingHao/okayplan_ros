@@ -28,6 +28,8 @@ The file structure should be like this:
 
 - **Step2:** compile your workspace
 ```cmd
+cd ~/your_ws/src/okayplan_ros/scripts
+chmod +x *.py
 cd ~/your_ws
 catkin_make
 ```

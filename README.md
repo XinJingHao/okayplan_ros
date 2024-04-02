@@ -1,5 +1,10 @@
 # OkayPlan:
 [![okayplan_ros](https://github.com/XinJingHao/Images/blob/main/OkayPlan/okayplan_youtube.png)](https://www.youtube.com/watch?v=zufvYkhRW5w)
+<div align=center>
+  <img src="https://img.shields.io/badge/Python-blue" />
+  <img src="https://img.shields.io/badge/ROS-ff69b4" />
+  <img src="https://img.shields.io/badge/PathPlanning-blueviolet" />
+</div>
 
 ## 1.Installation
 Please change the following ```your_ws``` with your own ```ROS_workspace```

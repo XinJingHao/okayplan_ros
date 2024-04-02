@@ -71,6 +71,8 @@ python main.py
 # System related:
   Ubuntu=20.04
   ROS=Noetic
+  gazebo=11.11.0
+  rviz=1.14.20
   python=3.8.3
 
 # Python related:

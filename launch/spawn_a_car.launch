@@ -12,7 +12,7 @@
 
 
     <group ns="$(arg namespace)">
-        <param name="robot_description" command="$(find xacro)/xacro --inorder $(find okayplan_ros)/FML_Robot/car.xacro bodyframe:=$(arg namespace)"/>
+        <param name="robot_description" command="$(find xacro)/xacro $(find okayplan_ros)/FML_Robot/car.xacro bodyframe:=$(arg namespace)"/>
 
         <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" >
             <param name="rate" type="double" value="120.0" />

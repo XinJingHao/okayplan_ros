@@ -1,0 +1,107 @@
+<launch>
+
+    <!-- 启动gazebo仿真，并用scripts/pub_real_coordinate.py实时发布机器人在gazebo中的真实TF坐标，并在rviz中可视化 -->
+
+    <arg name="map_name" default="zoom_6_6" />
+    <arg name="render" default="false" />
+
+
+    <!--启动gazebo仿真环境-->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <!--打开指定的world-->
+        <arg name="world_name" value="$(find okayplan_ros)/worlds/$(arg map_name).world" />
+        <!--是否启动gui界面-->
+        <arg name="gui" default="$(arg render)" />
+        <!--使用仿真时间-->
+        <arg name="use_sim_time" value="true"/>
+    </include>
+
+
+    <!-- Car 0, 被控对象 -->
+    <include file="$(find okayplan_ros)/launch/spawn_a_car.launch">
+        <arg name="namespace" value="car0" />
+        <arg name="x" value="-2.6" />
+        <arg name="y" value="-2.6" />
+        <arg name="rotate_z" value="0" /> <!-- 绕Z轴旋转角度, radians -->
+    </include>
+    <!-- 开启gazebo真实状态发布节点 -->
+    <node pkg="okayplan_ros" type="multi_pub_real_coordinate.py" name="real_puber_car0" args="car0 /base_footprint" output="screen"/>
+
+    <!-- Car 1 -->
+    <include file="$(find okayplan_ros)/launch/spawn_a_car.launch">
+        <arg name="namespace" value="car1" />
+        <arg name="x" default="0.5" />
+        <arg name="y" default="0.0" />
+        <arg name="rotate_z" value="-0.785" /> <!-- 绕Z轴旋转角度, radians -->
+    </include>
+    <!-- 开启gazebo真实状态发布节点 -->
+    <node pkg="okayplan_ros" type="multi_pub_real_coordinate.py" name="real_puber_car1" args="car1 /base_footprint" output="screen"/>
+    <!-- 开启障碍物AGV随机速度发布节点 -->
+    <node pkg="okayplan_ros" type="multi_pub_car_velocity.py" name="velocity_puber_car1" args="car1" output="screen"/>
+
+    <!-- Car 2 -->
+    <include file="$(find okayplan_ros)/launch/spawn_a_car.launch">
+        <arg name="namespace" value="car2" />
+        <arg name="x" default="0.0" />
+        <arg name="y" default="0.0" />
+        <arg name="rotate_z" value="0" /> <!-- 绕Z轴旋转角度, radians -->
+    </include>
+    <!-- 开启gazebo真实状态发布节点 -->
+    <node pkg="okayplan_ros" type="multi_pub_real_coordinate.py" name="real_puber_car2" args="car2 /base_footprint" output="screen"/>
+    <!-- 开启障碍物AGV随机速度发布节点 -->
+    <node pkg="okayplan_ros" type="multi_pub_car_velocity.py" name="velocity_puber_car2" args="car2" output="screen"/>
+
+    <!-- Car 3 -->
+    <include file="$(find okayplan_ros)/launch/spawn_a_car.launch">
+        <arg name="namespace" value="car3" />
+        <arg name="x" default="-1.0" />
+        <arg name="y" default="1.0" />
+        <arg name="rotate_z" value="0" /> <!-- 绕Z轴旋转角度, radians -->
+    </include>
+    <!-- 开启gazebo真实状态发布节点 -->
+    <node pkg="okayplan_ros" type="multi_pub_real_coordinate.py" name="real_puber_car3" args="car3 /base_footprint" output="screen"/>
+        <!-- 开启障碍物AGV随机速度发布节点 -->
+    <node pkg="okayplan_ros" type="multi_pub_car_velocity.py" name="velocity_puber_car3" args="car3" output="screen"/>
+
+
+    <!-- Car 4 -->
+    <include file="$(find okayplan_ros)/launch/spawn_a_car.launch">
+        <arg name="namespace" value="car4" />
+        <arg name="x" default="-1.5" />
+        <arg name="y" default="1.5" />
+        <arg name="rotate_z" value="0" /> <!-- 绕Z轴旋转角度, radians -->
+    </include>
+    <!-- 开启gazebo真实状态发布节点 -->
+    <node pkg="okayplan_ros" type="multi_pub_real_coordinate.py" name="real_puber_car4" args="car4 /base_footprint" output="screen"/>
+        <!-- 开启障碍物AGV随机速度发布节点 -->
+    <node pkg="okayplan_ros" type="multi_pub_car_velocity.py" name="velocity_puber_car4" args="car4" output="screen"/>
+
+
+    <!-- Car 5 -->
+    <include file="$(find okayplan_ros)/launch/spawn_a_car.launch">
+        <arg name="namespace" value="car5" />
+        <arg name="x" default="0.5" />
+        <arg name="y" default="-1.5" />
+        <arg name="rotate_z" value="0" /> <!-- 绕Z轴旋转角度, radians -->
+    </include>
+    <!-- 开启gazebo真实状态发布节点 -->
+    <node pkg="okayplan_ros" type="multi_pub_real_coordinate.py" name="real_puber_car5" args="car5 /base_footprint" output="screen"/>
+        <!-- 开启障碍物AGV随机速度发布节点 -->
+    <node pkg="okayplan_ros" type="multi_pub_car_velocity.py" name="velocity_puber_car5" args="car5" output="screen"/>
+
+
+
+    <!-- 开启障碍物TF关系发布节点 -->
+    <node pkg="okayplan_ros" type="multi_pub_real_coordinate.py" name="box0_puber" args="box_08_05" output="screen"/>
+    <node pkg="okayplan_ros" type="multi_pub_real_coordinate.py" name="box1_puber" args="box_10_03" output="screen"/>
+
+
+    <!-- 开启Riz -->
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find okayplan_ros)/rviz_cfg/okayplan_car5.rviz" />
+
+    <!-- 开启键盘控制节点 -->
+    <include file="$(find okayplan_ros)/launch/multi_key_ctrl.launch" />
+
+</launch>
+
+

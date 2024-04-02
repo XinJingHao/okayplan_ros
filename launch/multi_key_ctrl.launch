@@ -1,0 +1,7 @@
+<launch>
+
+    <!-- 开启键盘控制 (需要先编译工作空间，并chmod -x *.py) -->
+
+    <node pkg="okayplan_ros" type="multi_teleop_twist_keyboard.py" name="multi_key_ctrl" output="screen"></node>
+
+</launch>

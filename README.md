@@ -1,4 +1,4 @@
-# OkayPlan: Real-time global path planning algorithm for dynamic environments
+# OkayPlan:
 [![okayplan_ros](https://github.com/XinJingHao/Images/blob/main/OkayPlan/okayplan_youtube.png)](https://www.youtube.com/watch?v=zufvYkhRW5w)
 
 ## 1.Installation
@@ -40,7 +40,7 @@ If the ros packages listed in the ```CMakeLists.txt``` haven't been installed, y
 conda create -n myenv python=3.8.3
 ```
 
-- **Step4:** install python requirements
+- **Step4:** install python dependencies
 ```cmd
 cd ~/your_ws/src/okayplan_ros
 conda activate myenv

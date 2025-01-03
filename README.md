@@ -93,17 +93,17 @@ python main.py
 
 # ROS packages related:
 # install with **sudo apt install ros-noetic-<package>**
-  gazebo_plugins
-  gazebo_ros
-  gazebo_ros_control
-  geometry_msgs
-  move_base
+  gazebo-plugins
+  gazebo-ros
+  gazebo-ros-control
+  geometry-msgs
+  move-base
   roscpp
   rospy
-  std_msgs
+  std-msgs
   tf2
-  tf2_geometry_msgs
-  tf2_ros
+  tf2-geometry-msgs
+  tf2-ros
   urdf
   xacro
 ```
